@@ -14,3 +14,6 @@ commit_lint.check warn: :all
 
 github.dismiss_out_of_range_messages
 rubocop.lint(inline_comment: true)
+
+changelog.format = :keep_a_changelog
+changelog.check!
