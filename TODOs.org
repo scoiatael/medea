@@ -13,13 +13,15 @@
    CLOSED: [2019-11-25 Mon 11:11]
 ** DONE Create first release
    CLOSED: [2019-11-25 Mon 13:24]
-* [0%] Stage 1
-** TODO Add Dry.rb
+* [14%] Stage 1
+** DONE Add Dry.rb
+   CLOSED: [2019-11-25 Mon 17:03]
 ** TODO JSON loader
 ** TODO Query+QueryHandler components
 ** TODO Endpoint
 ** TODO Add dev sections to README
 ** TODO Add CD
+** TODO Document API
 * [%] Stage 2
 ** TODO Deploy to Heroku
 ** TODO Rewrite Query component
