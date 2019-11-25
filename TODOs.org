@@ -33,3 +33,5 @@
 ** TODO Postgres loader
 ** TODO Command+CommandHandler components
 ** TODO Add production sections to README
+** TODO Geocoder
+   https://github.com/geokit/geokit-rails
