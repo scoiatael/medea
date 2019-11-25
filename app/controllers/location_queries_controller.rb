@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
 require 'rgeo/geo_json'
 
+# LocationQueriesController responds to simple queries about locations
 class LocationQueriesController < ApplicationController
   AREAS = 'db/areas.json'
 
