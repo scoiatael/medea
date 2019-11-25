@@ -4,17 +4,22 @@ class LocationQueriesController < ApplicationController
   AREAS = 'db/areas.json'
 
   def show
-    areas = load_areas
     render json: RGeo::GeoJSON.encode(areas)
   end
 
   def inside?
-    render json: true
+    param = request.GET[:q]
+    point = to_point(param)
+    render json: areas.any? { |a| a.geometry.contains?(point) }
   end
 
   private
 
-  def load_areas
+  def areas
     RGeo::GeoJSON.decode(File.read(AREAS))
+  end
+
+  def to_point(json)
+    RGeo::GeoJSON.decode(json)
   end
 end
