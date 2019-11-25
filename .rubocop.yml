@@ -1,1 +1,10 @@
+# Offense count: 1
+# Configuration parameters: CountComments, ExcludedMethods.
+# ExcludedMethods: refine
+Metrics/BlockLength:
+  Exclude:
+    - 'Rakefile'
+    - '**/*.rake'
+    - 'spec/**/*_spec.rb'
+
 inherit_from: .rubocop_todo.yml

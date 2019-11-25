@@ -17,11 +17,31 @@ RSpec.describe LocationQueriesController, type: :controller do
   end
 
   describe 'GET /location/inside' do
-    it 'checks if point is inside any area' do
-      get :inside?, params: { q: '{"type":"Point","coordinates":[8.3,50.66]}' }
+    context 'with JSON-encoded query' do
+      it 'checks if point is inside any area' do
+        get :inside?, params: { q: '{"type":"Point","coordinates":[8.3,50.66]}' }
 
-      expect(response).to have_http_status(:ok)
-      expect(response.body).to eq('true')
+        expect(response).to have_http_status(:ok)
+        expect(response.body).to eq('true')
+      end
+    end
+
+    context 'with invalid parameters' do
+      params_to_error = {
+        { q: '' } => :missing_query_param,
+        {} => :missing_query_param,
+        { q: '}' } => :invalid_json,
+        { q: '{"type":"Point","coordinates":[8.3]}' } => :invalid_json
+      }
+
+      params_to_error.each do |params, error|
+        it "returns bad request and error=#{error} for #{params}" do
+          get :inside?, params: params
+
+          expect(response).to have_http_status(:bad_request)
+          expect(response.body).to eq(JSON.dump(error: error))
+        end
+      end
     end
   end
 end
