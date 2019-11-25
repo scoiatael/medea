@@ -30,6 +30,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # RSpec goodness. 4.0 will be out soon, but let's stick to stable until then.
   gem 'rspec-rails', '~> 3.9'
+  gem 'danger'
 end
 
 group :development do
