@@ -15,10 +15,16 @@ jobs:
         ruby-version: 2.6.x
     - name: install PostgreSQL client
       run: sudo apt-get install libpq-dev
-    - name: Install gems
+    - uses: actions/cache@v1
+      id: cache
+      with:
+        path: bundle/
+        key: ${{ runner.os }}-${{ hashFiles('Gemfile.lock') }}
+    - name: Install Dependencies
+      if: steps.cache.outputs.cache-hit != 'true'
       run: |
         gem install bundler
-        bundle install --jobs 4 --retry 3
+        bundle install --standalone=test,development --jobs 4 --retry 3
     - name: Run danger
       run: |
         bundle exec danger --verbose
