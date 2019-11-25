@@ -13,6 +13,8 @@ jobs:
       uses: actions/setup-ruby@v1
       with:
         ruby-version: 2.6.x
+    - name: install PostgreSQL client
+      run: sudo apt-get install libpq-dev
     - name: Build and test
       run: |
         gem install bundler
