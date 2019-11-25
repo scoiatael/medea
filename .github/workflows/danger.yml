@@ -16,6 +16,7 @@ jobs:
     - name: Run danger
       run: |
         gem install danger
+        gem install danger-commit_lint
         danger --verbose
       env:
         DANGER_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}

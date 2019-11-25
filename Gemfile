@@ -31,6 +31,7 @@ group :development, :test do
   # RSpec goodness. 4.0 will be out soon, but let's stick to stable until then.
   gem 'rspec-rails', '~> 3.9'
   gem 'danger'
+  gem 'danger-commit_lint'
 end
 
 group :development do
