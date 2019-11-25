@@ -14,6 +14,8 @@ Things you may want to cover:
 * Ruby version
 
 * System dependencies
+  * Postgres,
+  * Geos
 
 * Configuration
 
