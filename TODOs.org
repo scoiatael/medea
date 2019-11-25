@@ -1,0 +1,23 @@
+* [33%] Stage 0
+** DONE Init API
+   CLOSED: [2019-11-25 Mon 10:54]
+** DONE Add RSpec
+   CLOSED: [2019-11-25 Mon 10:54]
+** TODO Stub docs (CHANGELOG, READMEs)
+** TODO Add Danger
+** TODO Create GitHub repo
+** TODO Add CI
+* [0%] Stage 1
+** TODO Add Dry.rb
+** TODO JSON loader
+** TODO Query+QueryHandler components
+** TODO Endpoint
+** TODO Add dev sections to README
+* [%] Stage 2
+** TODO Deploy to Heroku
+** TODO Rewrite Query component
+* [0%] Stage 3
+** TODO Seed Postgres
+** TODO Postgres loader
+** TODO Command+CommandHandler components
+** TODO Add production sections to README
