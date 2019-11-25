@@ -139,6 +139,8 @@ GEM
       dry-equalizer (~> 0.2)
       dry-inflector (~> 0.1, >= 0.1.2)
       dry-struct (~> 1.0)
+    dry-system-rails (0.3.1)
+      dry-system (~> 0.12)
     dry-types (1.2.1)
       concurrent-ruby (~> 1.0)
       dry-container (~> 0.3)
@@ -307,6 +309,7 @@ DEPENDENCIES
   danger-rubocop
   dry-effects
   dry-system
+  dry-system-rails
   lefthook
   listen (>= 3.0.5, < 3.2)
   pg (>= 0.18, < 2.0)

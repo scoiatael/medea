@@ -3,6 +3,14 @@
 require 'rails_helper'
 
 RSpec.describe LocationQueriesController, type: :controller do
+  include Dry::Effects::Handler.Resolve
+
+  around do |spec|
+    DependencyResolverMiddleware.new(nil).testing do
+      spec.run
+    end
+  end
+
   describe 'GET /location' do
     it 'returns a list of locations' do
       get :show
