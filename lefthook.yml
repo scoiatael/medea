@@ -1,0 +1,9 @@
+pre-push:
+  parallel: true
+  commands:
+    audit:
+      run: brakeman --no-pager
+    rubocop:
+      run: rubocop
+    rspec:
+      run: rspec
