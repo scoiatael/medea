@@ -9,6 +9,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - uses: danger/danger
+    - name: Run danger
+      run: |
+        gem install danger
+        danger --verbose
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        DANGER_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
