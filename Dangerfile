@@ -13,4 +13,4 @@ raise('fit left in tests') if `grep -r fit specs/ `.length > 1
 commit_lint.check warn: :all
 
 github.dismiss_out_of_range_messages
-rubocop.lint inline_comment: true
+rubocop.lint(inline_comment: true)
