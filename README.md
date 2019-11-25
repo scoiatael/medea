@@ -1,4 +1,10 @@
-# README
+# Medea
+
+## Intention
+
+This is a simple Location API microservice, allowing for querying a set of coordinates against known locations.
+
+## Dev
 
 This README would normally document whatever steps are necessary to get the
 application up and running.

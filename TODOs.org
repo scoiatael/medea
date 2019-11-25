@@ -1,18 +1,22 @@
-* [33%] Stage 0
+* [57%] Stage 0
 ** DONE Init API
    CLOSED: [2019-11-25 Mon 10:54]
 ** DONE Add RSpec
    CLOSED: [2019-11-25 Mon 10:54]
-** TODO Stub docs (CHANGELOG, READMEs)
+** DONE Stub docs (CHANGELOG, READMEs)
+   CLOSED: [2019-11-25 Mon 11:03]
+** DONE Create GitHub repo
+   CLOSED: [2019-11-25 Mon 11:04]
 ** TODO Add Danger
-** TODO Create GitHub repo
 ** TODO Add CI
+** TODO Create first release
 * [0%] Stage 1
 ** TODO Add Dry.rb
 ** TODO JSON loader
 ** TODO Query+QueryHandler components
 ** TODO Endpoint
 ** TODO Add dev sections to README
+** TODO Add CD
 * [%] Stage 2
 ** TODO Deploy to Heroku
 ** TODO Rewrite Query component
