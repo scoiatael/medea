@@ -1,4 +1,4 @@
-* [57%] Stage 0
+* [85%] Stage 0
 ** DONE Init API
    CLOSED: [2019-11-25 Mon 10:54]
 ** DONE Add RSpec
@@ -7,8 +7,10 @@
    CLOSED: [2019-11-25 Mon 11:03]
 ** DONE Create GitHub repo
    CLOSED: [2019-11-25 Mon 11:04]
-** TODO Add Danger
-** TODO Add CI
+** DONE Add Danger
+   CLOSED: [2019-11-25 Mon 11:10]
+** DONE Add CI
+   CLOSED: [2019-11-25 Mon 11:11]
 ** TODO Create first release
 * [0%] Stage 1
 ** TODO Add Dry.rb
