@@ -23,3 +23,6 @@
 
 # Direnv environment variables
 /.envrc
+
+# RSpec temporary state
+/spec/examples.txt

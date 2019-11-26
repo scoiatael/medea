@@ -1,4 +1,4 @@
-* [85%] Stage 0
+* [100%] Stage 0
 ** DONE Init API
    CLOSED: [2019-11-25 Mon 10:54]
 ** DONE Add RSpec
@@ -11,19 +11,28 @@
    CLOSED: [2019-11-25 Mon 11:10]
 ** DONE Add CI
    CLOSED: [2019-11-25 Mon 11:11]
-** TODO Create first release
-* [0%] Stage 1
-** TODO Add Dry.rb
-** TODO JSON loader
-** TODO Query+QueryHandler components
-** TODO Endpoint
-** TODO Add dev sections to README
-** TODO Add CD
-* [%] Stage 2
+** DONE Create first release
+   CLOSED: [2019-11-25 Mon 13:24]
+* [62%] Stage 1
+** DONE Add Dry.rb
+   CLOSED: [2019-11-25 Mon 17:03]
+** DONE JSON loader
+   CLOSED: [2019-11-25 Mon 22:56]
+** DONE Query+QueryHandler components
+   CLOSED: [2019-11-25 Mon 22:56]
+** DONE Endpoint
+   CLOSED: [2019-11-25 Mon 22:56]
+** DONE Add Postgres to CI
+   CLOSED: [2019-11-26 Tue 12:08]
 ** TODO Deploy to Heroku
+** TODO Add dev sections to README
+** TODO Document API
+* [%] Stage 2
 ** TODO Rewrite Query component
 * [0%] Stage 3
 ** TODO Seed Postgres
 ** TODO Postgres loader
 ** TODO Command+CommandHandler components
 ** TODO Add production sections to README
+** TODO Geocoder
+   https://github.com/geokit/geokit-rails

@@ -49,3 +49,13 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+
+# Dry.rb - for more explicit and decoupled application structure
+gem 'dry-effects'
+gem 'dry-system'
+gem 'dry-system-rails'
+
+# RGeos helpers for easier working with GEOJson
+gem 'activerecord-postgis-adapter'
+gem 'rgeo'
+gem 'rgeo-geojson'
