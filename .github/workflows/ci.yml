@@ -31,13 +31,15 @@ jobs:
     - uses: actions/cache@v1
       id: cache
       with:
-        path: bundle/
-        key: ${{ runner.os }}-${{ hashFiles('Gemfile.lock') }}
+        path: vendor/bundle
+        key: ${{ runner.os }}-gem-${{ hashFiles('**/Gemfile.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-gem-
     - name: Install Dependencies
       if: steps.cache.outputs.cache-hit != 'true'
       run: |
-        gem install bundler
-        bundle install --standalone=test,development --jobs 4 --retry 3
+        bundle config path vendor/bundle
+        bundle install --jobs 4 --retry 3
     - name: Run danger
       run: |
         bundle exec danger --verbose
