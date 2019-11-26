@@ -14,15 +14,19 @@ RSpec.describe Areas::Queries::Contain do
 
   # This is the red one in the middle
   context 'when point is outside the area' do
-    let(:point) { RGeo::GeoJSON.decode('{"type":"Point","coordinates":[48.2832, 15.2930]}') }
+    let(:point) { make_point(lat: 48.2832, long: 15.2930) }
 
     it { is_expected.to eq(false) }
   end
 
   # This is the green one to south-west of Ostrava
-  context 'when point is outside the area' do
-    let(:point) { RGeo::GeoJSON.decode('{"type":"Point","coordinates":[49.3824, 17.8418]}') }
+  context 'when point is inside the area' do
+    let(:point) { make_point(lat: 49.3824, long: 17.8418) }
 
-    it { is_expected.to eq(false) }
+    it { is_expected.to eq(true) }
+  end
+
+  def make_point(long:, lat:)
+    RGeo::GeoJSON.decode("{\"type\":\"Point\",\"coordinates\":[#{long}, #{lat}]}")
   end
 end
