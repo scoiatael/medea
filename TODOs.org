@@ -13,7 +13,7 @@
    CLOSED: [2019-11-25 Mon 11:11]
 ** DONE Create first release
    CLOSED: [2019-11-25 Mon 13:24]
-* [57%] Stage 1
+* [62%] Stage 1
 ** DONE Add Dry.rb
    CLOSED: [2019-11-25 Mon 17:03]
 ** DONE JSON loader
@@ -22,9 +22,10 @@
    CLOSED: [2019-11-25 Mon 22:56]
 ** DONE Endpoint
    CLOSED: [2019-11-25 Mon 22:56]
+** DONE Add Postgres to CI
+   CLOSED: [2019-11-26 Tue 12:08]
 ** TODO Deploy to Heroku
 ** TODO Add dev sections to README
-** TODO Add CD
 ** TODO Document API
 * [%] Stage 2
 ** TODO Rewrite Query component

@@ -7,14 +7,27 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    services:
+          postgres:
+            image: mdillon/postgis:11
+            env:
+              POSTGRES_USER: postgres
+              POSTGRES_PASSWORD: postgres
+              POSTGRES_DB: postgres
+            ports:
+            # will assign a random free host port
+            - 5432/tcp
+            # needed because the postgres container does not provide a healthcheck
+            options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+
     steps:
     - uses: actions/checkout@v1
     - name: Set up Ruby 2.6
       uses: actions/setup-ruby@v1
       with:
         ruby-version: 2.6.x
-    - name: install PostgreSQL client
-      run: sudo apt-get install libpq-dev
+    - name: install required host libraries
+      run: sudo apt-get install libpq-dev libgeos-dev
     - uses: actions/cache@v1
       id: cache
       with:
@@ -32,4 +45,9 @@ jobs:
         DANGER_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Run rspec
       run: |
+        bundle exec rake db:create
         bundle exec rspec
+      env:
+        # use localhost for the host here because we are running the job on the VM.
+        # If we were running the job on in a container this would be postgres
+        MEDEA_TEST_DATABASE_URL: postgres://postgres:postgres@localhost:${{ job.services.postgres.ports[5432] }}/medea_test
