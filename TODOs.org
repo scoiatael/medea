@@ -33,12 +33,13 @@
 * [100%] Stage 2
 ** DONE Rewrite Query component
    CLOSED: [2019-11-29 Fri 16:31]
-* [22%] Stage 3
+* [33%] Stage 3
 ** DONE Command+CommandHandler components
    CLOSED: [2019-11-29 Fri 16:31]
 ** DONE Add production sections to README
    CLOSED: [2019-11-29 Fri 16:32]
-** TODO Add redirect from POST to PUT
+** DONE Add POST method
+   CLOSED: [2019-11-29 Fri 17:03]
 ** TODO Add FactoryBoy
 ** TODO Add query for location by id
 ** TODO Add Background jobs
