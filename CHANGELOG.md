@@ -9,8 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `location_queries/inside` returns 400 Bad Request instead of 500 when given query is not a Point geometry.
 
 ### Added
-- `PUT location_commands/create_by_id` endpoint for creating new Location with id - idempotent,
+- `PUT location_commands/create/:id` endpoint for creating new Location with id - idempotent,
 - `POST location_commands/create` endpoint for creating new Location, non-idempotent,
+- `GET location_queries/by_id/:id` endpoint for querying Location by id,
 
 ## [1.1.0] - 2019-11-27
 ### Changed:

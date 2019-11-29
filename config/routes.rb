@@ -10,5 +10,6 @@ Rails.application.routes.draw do
 
   resource :location_queries, only: [:show] do
     get 'inside', to: 'location_queries#inside?'
+    get 'by_id/:id', to: 'location_queries#by_id'
   end
 end

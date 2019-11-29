@@ -51,4 +51,43 @@ RSpec.describe LocationQueriesController, type: :controller do
       end
     end
   end
+
+  describe 'GET /location/by-id' do
+    before do
+      get :by_id, params: { id: id }
+    end
+
+    context 'when ID is not found' do
+      let(:id) { SecureRandom.uuid }
+
+      it 'returns 404' do
+        expect(response).to have_http_status(:not_found)
+      end
+    end
+
+    context 'when ID belongs to a Location' do
+      let(:name) { 'Austin' }
+      let(:id) { Location.create!(name: name).id }
+      let(:parsed) do
+        body = response.body
+        expect(body).not_to be_empty
+        JSON.parse(response.body)
+      end
+
+      it 'returns 200' do
+        expect(response).to have_http_status(:ok)
+      end
+
+      it 'returns name' do
+        expect(parsed['name']).to eq(name)
+      end
+
+      it 'returns only whitelisted params' do
+        expected_keys = %w[name inside lonlat]
+        parsed_keys = parsed.keys
+        expect(parsed_keys - expected_keys).to be_empty
+        expect(expected_keys - parsed_keys).to be_empty
+      end
+    end
+  end
 end
