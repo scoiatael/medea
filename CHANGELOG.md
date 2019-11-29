@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `PUT location_commands/create/:id` endpoint for creating new Location with id - idempotent,
 - `POST location_commands/create` endpoint for creating new Location, non-idempotent,
 - `GET location_queries/by_id/:id` endpoint for querying Location by id,
+- Background job to add Location coordinates via Geocoding,
 
 ## [1.1.0] - 2019-11-27
 ### Changed:
