@@ -39,7 +39,8 @@ RSpec.describe LocationQueriesController, type: :controller do
         { q: '' } => :missing_query_param,
         {} => :missing_query_param,
         { q: '}' } => :invalid_json,
-        { q: '{"type":"Point","coordinates":[8.3]}' } => :invalid_json
+        { q: '{"type":"Point","coordinates":[8.3]}' } => :invalid_json,
+        { q: '{"type":"Polygon","coordinates":[[[12.32,48.10],[12.06,48.06],[12.54,46.66],[12.32,48.10]]]}' } => :invalid_json
       }
 
       params_to_error.each do |params, error|

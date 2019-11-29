@@ -18,7 +18,7 @@ class LocationQueriesController < ApplicationController
     render json: contain.call(repo.all, point)
   rescue ActionController::ParameterMissing
     render json: { error: :missing_query_param }, status: :bad_request
-  rescue JSON::ParserError, GeoJSON::Decoder::MissingGeometry
+  rescue JSON::ParserError, GeoJSON::Decoder::MissingGeometry, Areas::Queries::Contain::UnsupportedType
     render json: { error: :invalid_json }, status: :bad_request
   end
 end
