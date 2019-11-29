@@ -20,6 +20,8 @@ class LocationCommandsController < ApplicationController
     id, name = params.require(%i[id name])
     created, = create!.call(id: id, name: name)
     render json: { id: id }, status: created ? :created : :ok
+  rescue Location::Commands::Create::IDNotUUID => e
+    render json: { error: e }, status: :bad_request
   rescue ActiveRecord::RecordNotUnique, Location::Commands::Create::ExistingRecordNameMismatch => e
     render json: { error: e }, status: :conflict
   end

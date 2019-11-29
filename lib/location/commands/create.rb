@@ -4,8 +4,12 @@ class Location
   module Commands
     class Create
       class ExistingRecordNameMismatch < StandardError; end
+      class IDNotUUID < StandardError; end
 
       def call(id:, name:)
+        # UUID regex src: https://github.com/assaf/uuid/blob/0b22c7d/lib/uuid.rb#L202
+        raise IDNotUUID, "#{id} is not in UUID format" unless id =~ /\A(urn:uuid:)?[\da-f]{8}-([\da-f]{4}-){3}[\da-f]{12}\z/i
+
         created = false
         location = Location.find_or_create_by(id: id) do |creating|
           created = true

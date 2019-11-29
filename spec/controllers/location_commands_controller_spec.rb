@@ -14,6 +14,16 @@ RSpec.describe LocationCommandsController, type: :controller do
     let(:id) { SecureRandom.uuid }
     let(:name) { 'Austin' }
 
+    context 'with non-UUID id' do
+      [1, 'fo', '1', SecureRandom.uuid[1..-4]].each do |id|
+        fit "returns 400 for id=#{id}" do
+          put :create_by_id, params: { id: id, name: name }
+
+          expect(response).to have_http_status(:bad_request)
+        end
+      end
+    end
+
     context 'with fresh id' do
       before do
         put :create_by_id, params: { id: id, name: name }
