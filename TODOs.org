@@ -33,7 +33,7 @@
 * [100%] Stage 2
 ** DONE Rewrite Query component
    CLOSED: [2019-11-29 Fri 16:31]
-* [44%] Stage 3
+* [66%] Stage 3
 ** DONE Command+CommandHandler components
    CLOSED: [2019-11-29 Fri 16:31]
 ** DONE Add production sections to README
@@ -42,9 +42,18 @@
    CLOSED: [2019-11-29 Fri 17:03]
 ** DONE Add query for location by id
    CLOSED: [2019-11-29 Fri 17:17]
-** TODO Add Background jobs
-** TODO Geocoder
+** DONE Geocoder
+   CLOSED: [2019-11-29 Fri 17:40]
    https://github.com/geokit/geokit-rails
+** DONE Add Background jobs
+   CLOSED: [2019-11-29 Fri 17:40]
+** TODO Mock Geocoder in specs
+** TODO Add Inside? query to background job
+** TODO Switch to Sidekiq
+* [%] Extras?
 ** TODO Seed Postgres with areas
 ** TODO Postgres area repo
 ** TODO Add FactoryBoy
+** TODO Switch to Google Geocoder
+** TODO Split models for Commands/Queries
+** TODO Emphasize EventSourcing possibilities
