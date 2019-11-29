@@ -3,6 +3,12 @@
 require 'rails_helper'
 
 RSpec.describe LocationCommandsController, type: :controller do
+  around do |spec|
+    DependencyResolverMiddleware.new(nil).testing do
+      spec.run
+    end
+  end
+
   describe 'PUT /location_commands/create/:id' do
     # TODO: Use Factory for params
     let(:id) { SecureRandom.uuid }
@@ -13,11 +19,11 @@ RSpec.describe LocationCommandsController, type: :controller do
         put :create_by_id, params: { id: id, name: name }
       end
 
-      it 'returns 204' do
+      it 'returns 201' do
         expect(response).to have_http_status(:created)
       end
 
-      it 'creates id' do
+      it 'returns id' do
         expect(response.body).to eq(JSON.dump(id: id))
       end
 
@@ -60,6 +66,29 @@ RSpec.describe LocationCommandsController, type: :controller do
           expect(Location.where(id: id).count).to eq(1)
         end
       end
+    end
+  end
+
+  describe 'POST /location_commands/create' do
+    let(:name) { 'Austin' }
+    before do
+      post :create, params: { name: name }
+    end
+
+    it 'returns 201' do
+      expect(response).to have_http_status(:created)
+    end
+
+    it 'returns id' do
+      body = response.body
+      expect(body).not_to be_empty
+      parsed = JSON.parse(response.body)
+      expect(parsed).to have_key('id')
+      expect(parsed['id']).not_to be_empty
+    end
+
+    it 'creates new location' do
+      expect(Location.where(name: name).count).to eq(1)
     end
   end
 end

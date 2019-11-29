@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   resource :location_commands, only: [] do
     put '/create/:id', to: 'location_commands#create_by_id'
+    post '/create', to: 'location_commands#create'
   end
 
   resource :location_queries, only: [:show] do

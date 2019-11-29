@@ -3,8 +3,6 @@
 require 'rails_helper'
 
 RSpec.describe LocationQueriesController, type: :controller do
-  include Dry::Effects::Handler.Resolve
-
   around do |spec|
     DependencyResolverMiddleware.new(nil).testing do
       spec.run
