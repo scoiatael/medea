@@ -2,7 +2,9 @@
 
 class LocationGeocodingJob < ApplicationJob
   include Dry::Effects.Resolve(
-    geocode: 'locations.queries.geocode'
+    geocode: 'locations.queries.geocode',
+    contain: 'areas.queries.contain',
+    repo: 'areas.repo.file'
   )
 
   queue_as :default
@@ -15,6 +17,7 @@ class LocationGeocodingJob < ApplicationJob
     return if geo_loc.lat.nil? || geo_loc.lng.nil?
 
     location.lonlat = "POINT(#{geo_loc.lng} #{geo_loc.lat})"
+    location.inside = contain.call(repo.all, location.lonlat)
     location.save!
   end
 end
