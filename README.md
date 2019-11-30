@@ -34,6 +34,7 @@ OUT: Boolean value - whether given point is inside any of known locations.
 
 [GET /location_queries]: https://location-api-medea.herokuapp.com/location_queries
 [GET /location_queries/inside]: https://location-api-medea.herokuapp.com/location_queries/inside?q=%7B%22type%22%3A%22Point%22%2C%22coordinates%22%3A%5B8.3%2C50.66%5D%7D
+[GET /location_queries/by_id/:id]: https://location-api-medea.herokuapp.com/location_queries/by_id/06dae72c-1389-11ea-8059-07252b524a4b
 
 ## Development
 
@@ -64,6 +65,10 @@ None should be required. Postgres connects on local socket, so no password is re
 
 ### Deployment instructions
 Heroku is hooked up to this Github account, so simply open a PR and it'll be deployed on merge. This is more or less default Heroku setup (Heroku Postgres supports Postgis by default), with only apt buildpack added to install dependencies. Steps are described on [RGeo wiki](https://github.com/rgeo/rgeo/wiki/Enable-GEOS-and-Proj4-on-Heroku#option-1-use-heroku-buildpack-apt).
+
+You might need to create Postgis extension first on your Heroku database by running `CREATE EXTENSION IF NOT EXISTS "postgis";` inside `heroku pg:psql`.
+
+Also, you might need to enable "worker" process on Heroku.
 
 ### CI
 Github Actions are used for linting PRs. In short they run [Danger](https://danger.systems/ruby/) and RSpec.
