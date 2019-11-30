@@ -6,9 +6,27 @@ This is a simple Location API microservice, allowing for querying a set of coord
 
 ## Endpoints
 
+### [POST /location_commands/create]
+IN: `name` - location name, e.g. Austin.
+OUT: `id` - ID of newly added location
+
+### [PUT /location_commands/create/:id]
+IN:
+- `name` - location name, e.g. Austin,
+- `id` - UUID for new location.
+OUT: `id` - ID of newly added location
+
+### [GET /location_queries/by_id/:id]
+IN: `id` - ID of a location for query.
+OUT:
+- `geocoder_errors` - array of encountered errors, if any,
+- `inside` - boolean value, whether given point is inside any known areas - can be null if point wasn't processed yet,
+- `lonlat` - coordinates of given location, e.g. `POINT (-86.7743531 36.1622296)` - can be null wasn't processed yet,
+- `name` - name from which given location was created.
+
 ### [GET /location_queries]
 IN: [].
-OUT: List of known locations, in GEO Json format.
+OUT: List of known areas, in GEO Json format.
 
 ### [GET /location_queries/inside]
 IN: q - GEO Json-encoded Point.

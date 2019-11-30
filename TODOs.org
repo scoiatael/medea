@@ -33,7 +33,7 @@
 * [100%] Stage 2
 ** DONE Rewrite Query component
    CLOSED: [2019-11-29 Fri 16:31]
-* [90%] Stage 3
+* [100%] Stage 3
 ** DONE Command+CommandHandler components
    CLOSED: [2019-11-29 Fri 16:31]
 ** DONE Add production sections to README
@@ -55,10 +55,11 @@
    CLOSED: [2019-11-30 Sat 15:27]
 ** DONE Switch to Sidekiq
    CLOSED: [2019-11-30 Sat 16:05]
-** TODO Document new API
+** DONE Document new API
+   CLOSED: [2019-11-30 Sat 16:18]
 * [%] Extras?
-** TODO Seed Postgres with areas
 ** TODO Postgres area repo
+** TODO Seed Postgres with areas
 ** TODO Add FactoryBoy
 ** TODO Switch to Google Geocoder
 ** TODO Split models for Commands/Queries
