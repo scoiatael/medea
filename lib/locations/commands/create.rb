@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Location
+module Locations
   module Commands
     class Create
       class ExistingRecordNameMismatch < StandardError; end

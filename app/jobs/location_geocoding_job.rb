@@ -1,16 +1,16 @@
 # frozen_string_literal: true
 
-require 'geokit'
 class LocationGeocodingJob < ApplicationJob
-  queue_as :default
+  include Dry::Effects.Resolve(
+    geocode: 'locations.queries.geocode'
+  )
 
-  GEOCODER = Geokit::Geocoders::OSMGeocoder
+  queue_as :default
 
   def perform(location)
     return unless location.lonlat.nil?
 
-    # TODO: Decouple from tests.
-    geo_loc = GEOCODER.geocode(location.name)
+    geo_loc = geocode.call(location.name)
     # TODO: Handle errors
     return if geo_loc.lat.nil? || geo_loc.lng.nil?
 

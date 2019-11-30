@@ -33,7 +33,7 @@
 * [100%] Stage 2
 ** DONE Rewrite Query component
    CLOSED: [2019-11-29 Fri 16:31]
-* [60%] Stage 3
+* [70%] Stage 3
 ** DONE Command+CommandHandler components
    CLOSED: [2019-11-29 Fri 16:31]
 ** DONE Add production sections to README
@@ -47,7 +47,8 @@
    https://github.com/geokit/geokit-rails
 ** DONE Add Background jobs
    CLOSED: [2019-11-29 Fri 17:40]
-** TODO Mock Geocoder in specs
+** DONE Mock Geocoder in specs
+   CLOSED: [2019-11-30 Sat 15:01]
 ** TODO Add Inside? query to background job
 ** TODO Document new API
 ** TODO Switch to Sidekiq
