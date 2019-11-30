@@ -10,15 +10,16 @@ RSpec.describe LocationQueriesController, type: :controller do
   end
 
   describe 'GET /location' do
-    it 'returns a list of locations' do
+    before do
       get :show
+    end
 
+    it 'returns ok' do
       expect(response).to have_http_status(:ok)
-      body = response.body
-      expect(body).not_to be_empty
-      parsed = JSON.parse(body)
-      expect(parsed).to have_key('features')
-      expect(parsed['features'].size).to eq(6)
+    end
+
+    it 'returns a list of locations' do
+      expect(response).to include_json(features: ->(f) { f.size == 6 })
     end
   end
 
@@ -68,25 +69,17 @@ RSpec.describe LocationQueriesController, type: :controller do
     context 'when ID belongs to a Location' do
       let(:name) { 'Austin' }
       let(:id) { Location.create!(name: name).id }
-      let(:parsed) do
-        body = response.body
-        expect(body).not_to be_empty
-        JSON.parse(response.body)
-      end
 
       it 'returns 200' do
         expect(response).to have_http_status(:ok)
       end
 
       it 'returns name' do
-        expect(parsed['name']).to eq(name)
+        expect(response).to include_json(name: name)
       end
 
       it 'returns only whitelisted params' do
-        expected_keys = %w[name inside lonlat geocoder_errors]
-        parsed_keys = parsed.keys
-        expect(parsed_keys - expected_keys).to be_empty
-        expect(expected_keys - parsed_keys).to be_empty
+        expect(response).to be_json_response_with_keys(%w[name inside lonlat geocoder_errors])
       end
     end
   end

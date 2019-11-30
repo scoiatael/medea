@@ -98,11 +98,7 @@ RSpec.describe LocationCommandsController, type: :controller do
     end
 
     it 'returns id' do
-      body = response.body
-      expect(body).not_to be_empty
-      parsed = JSON.parse(response.body)
-      expect(parsed).to have_key('id')
-      expect(parsed['id']).not_to be_empty
+      expect(response).to be_json_response_with_keys(:id)
     end
 
     it 'creates new location' do
