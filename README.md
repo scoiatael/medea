@@ -24,7 +24,7 @@ IN: `id` - ID of a location for query.
 OUT:
 - `geocoder_errors` - array of encountered errors, if any,
 - `inside` - boolean value, whether given point is inside any known areas - can be null if point wasn't processed yet,
-- `lonlat` - coordinates of given location, e.g. `POINT (-86.7743531 36.1622296)` - can be null wasn't processed yet,
+- `lonlat` - coordinates of given location, e.g. `POINT (-86.7743531 36.1622296)` - can be null if point wasn't processed yet,
 - `name` - name from which given location was created.
 
 ### [GET /location_queries]
