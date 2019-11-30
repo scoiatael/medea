@@ -52,4 +52,4 @@ jobs:
         RACK_ENV: test
         # use localhost for the host here because we are running the job on the VM.
         # If we were running the job on in a container this would be postgres
-        MEDEA_TEST_DATABASE_URL: postgres://postgres:postgres@localhost:${{ job.services.postgres.ports[5432] }}/medea_test
+        MEDEA_TEST_DATABASE_URL: postgis://postgres:postgres@localhost:${{ job.services.postgres.ports[5432] }}/medea_test

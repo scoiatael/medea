@@ -59,3 +59,9 @@ gem 'dry-system-rails'
 gem 'activerecord-postgis-adapter'
 gem 'rgeo'
 gem 'rgeo-geojson'
+
+# Geocoder
+gem 'geokit'
+
+# Better ActiveJob adapter
+gem 'sidekiq'

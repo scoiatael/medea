@@ -30,12 +30,37 @@
    CLOSED: [2019-11-26 Tue 13:20]
 ** DONE Deploy to Heroku
    CLOSED: [2019-11-26 Tue 13:15]
-* [%] Stage 2
-** TODO Rewrite Query component
-* [0%] Stage 3
-** TODO Seed Postgres
-** TODO Postgres loader
-** TODO Command+CommandHandler components
-** TODO Add production sections to README
-** TODO Geocoder
+* [100%] Stage 2
+** DONE Rewrite Query component
+   CLOSED: [2019-11-29 Fri 16:31]
+* [100%] Stage 3
+** DONE Command+CommandHandler components
+   CLOSED: [2019-11-29 Fri 16:31]
+** DONE Add production sections to README
+   CLOSED: [2019-11-29 Fri 16:32]
+** DONE Add POST method
+   CLOSED: [2019-11-29 Fri 17:03]
+** DONE Add query for location by id
+   CLOSED: [2019-11-29 Fri 17:17]
+** DONE Geocoder
+   CLOSED: [2019-11-29 Fri 17:40]
    https://github.com/geokit/geokit-rails
+** DONE Add Background jobs
+   CLOSED: [2019-11-29 Fri 17:40]
+** DONE Mock Geocoder in specs
+   CLOSED: [2019-11-30 Sat 15:01]
+** DONE Add Inside? query to background job
+   CLOSED: [2019-11-30 Sat 15:17]
+** DONE Handle invalid locations in background job
+   CLOSED: [2019-11-30 Sat 15:27]
+** DONE Switch to Sidekiq
+   CLOSED: [2019-11-30 Sat 16:05]
+** DONE Document new API
+   CLOSED: [2019-11-30 Sat 16:18]
+* [%] Extras?
+** TODO Postgres area repo
+** TODO Seed Postgres with areas
+** TODO Add FactoryBoy
+** TODO Switch to Google Geocoder
+** TODO Split models for Commands/Queries
+** TODO Emphasize EventSourcing possibilities

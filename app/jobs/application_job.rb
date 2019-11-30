@@ -6,4 +6,12 @@ class ApplicationJob < ActiveJob::Base
 
   # Most jobs are safe to ignore if the underlying records are no longer available
   # discard_on ActiveJob::DeserializationError
+
+  around_perform :inject_dependency_resolver
+
+  private
+
+  def inject_dependency_resolver(&block)
+    DependencyResolver.around(&block)
+  end
 end

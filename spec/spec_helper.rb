@@ -1,5 +1,9 @@
 # frozen_string_literal: true
 
+Dir["#{File.dirname(__FILE__)}/support/*.rb"].each do |f|
+  require_relative f
+end
+
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true

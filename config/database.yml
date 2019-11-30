@@ -85,6 +85,10 @@ test:
 #
 production:
   <<: *default
+  <% if ENV['DATABASE_URL'] %>
+  url: <%= ENV['DATABASE_URL'].sub(/^postgres/, 'postgis') %>
+  <% else %>
   database: medea_production
   username: medea
   password: <%= ENV['MEDEA_DATABASE_PASSWORD'] %>
+  <% end %>
