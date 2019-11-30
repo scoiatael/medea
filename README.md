@@ -8,16 +8,19 @@ This is a simple Location API microservice, allowing for querying a set of coord
 
 ### [POST /location_commands/create]
 IN: `name` - location name, e.g. Austin.
+
 OUT: `id` - ID of newly added location
 
 ### [PUT /location_commands/create/:id]
 IN:
 - `name` - location name, e.g. Austin,
 - `id` - UUID for new location.
+
 OUT: `id` - ID of newly added location
 
 ### [GET /location_queries/by_id/:id]
 IN: `id` - ID of a location for query.
+
 OUT:
 - `geocoder_errors` - array of encountered errors, if any,
 - `inside` - boolean value, whether given point is inside any known areas - can be null if point wasn't processed yet,
@@ -26,10 +29,12 @@ OUT:
 
 ### [GET /location_queries]
 IN: [].
+
 OUT: List of known areas, in GEO Json format.
 
 ### [GET /location_queries/inside]
 IN: q - GEO Json-encoded Point.
+
 OUT: Boolean value - whether given point is inside any of known locations.
 
 [GET /location_queries]: https://location-api-medea.herokuapp.com/location_queries
