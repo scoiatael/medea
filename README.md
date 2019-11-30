@@ -30,6 +30,10 @@ Obviously. I use [`direnv`](https://github.com/direnv/direnv/wiki/Ruby) to manag
 
 ### Databases
 * [Postgres](https://www.postgresql.org) with [Postgis](https://postgis.net). Lots of option there - simplest ones are either Docker, or direct installation on your OS. Create databases by running `rake db:create`.
+* [Redis](https://redis.io). Similar to above, use either docker or local installation.
+
+### Running locally
+I recommend using [Foreman](https://github.com/ddollar/foreman) - `gem install foreman` to use same Procfile that's used by Heroku on production. Simply run `foreman start`.
 
 ### Running tests
 Simply run `rspec`. If database connection fails, double check it's up and running and named databases are created.
@@ -38,7 +42,7 @@ Simply run `rspec`. If database connection fails, double check it's up and runni
 There's couple of them: `rubocop` and `brakeman`. I recommend using `lefthook` for running them on pre-push Git hook. This way you can commit dirty code, but it won't get anywhere anyone can see it. Simply install them with `lefthook install`.
 
 ### Configuration
-None should be required. Postgres connects on local socket, so no password is required. If you require changes, Rails guides like [the one from DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-set-up-ruby-on-rails-with-postgres) might be helpful.
+None should be required. Postgres connects on local socket, so no password is required. So does Redis. If you require changes, Rails guides like [the one from DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-set-up-ruby-on-rails-with-postgres) might be helpful.
 
 ### Deployment instructions
 Heroku is hooked up to this Github account, so simply open a PR and it'll be deployed on merge. This is more or less default Heroku setup (Heroku Postgres supports Postgis by default), with only apt buildpack added to install dependencies. Steps are described on [RGeo wiki](https://github.com/rgeo/rgeo/wiki/Enable-GEOS-and-Proj4-on-Heroku#option-1-use-heroku-buildpack-apt).

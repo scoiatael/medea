@@ -5,7 +5,7 @@ require 'dry/effects'
 module DependencyResolver
   extend Dry::Effects::Handler.Resolve
 
-  def self.around
+  def self.around(&block)
     provide(::Medea::Container, &block)
   end
 

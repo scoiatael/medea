@@ -62,3 +62,6 @@ gem 'rgeo-geojson'
 
 # Geocoder
 gem 'geokit'
+
+# Better ActiveJob adapter
+gem 'sidekiq'

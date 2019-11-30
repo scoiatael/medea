@@ -33,7 +33,7 @@
 * [100%] Stage 2
 ** DONE Rewrite Query component
    CLOSED: [2019-11-29 Fri 16:31]
-* [81%] Stage 3
+* [90%] Stage 3
 ** DONE Command+CommandHandler components
    CLOSED: [2019-11-29 Fri 16:31]
 ** DONE Add production sections to README
@@ -53,7 +53,8 @@
    CLOSED: [2019-11-30 Sat 15:17]
 ** DONE Handle invalid locations in background job
    CLOSED: [2019-11-30 Sat 15:27]
-** TODO Switch to Sidekiq
+** DONE Switch to Sidekiq
+   CLOSED: [2019-11-30 Sat 16:05]
 ** TODO Document new API
 * [%] Extras?
 ** TODO Seed Postgres with areas

@@ -8,6 +8,6 @@ class DependencyResolverMiddleware
   end
 
   def call(env)
-    DependencyResolver.provide { @app.call(env) }
+    DependencyResolver.around { @app.call(env) }
   end
 end

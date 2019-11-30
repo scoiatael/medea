@@ -67,6 +67,10 @@ RSpec.describe LocationCommandsController, type: :controller do
         it "doesn't create new location" do
           expect(Location.where(id: id).count).to eq(1)
         end
+
+        it 'returns error description' do
+          expect(response.body).to include_json(error: "existing record with id #{id} has name #{name}")
+        end
       end
 
       context 'when old name is equal to new name' do
