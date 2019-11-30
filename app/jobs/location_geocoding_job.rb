@@ -13,11 +13,16 @@ class LocationGeocodingJob < ApplicationJob
     return unless location.lonlat.nil?
 
     geo_loc = geocode.call(location.name)
-    # TODO: Handle errors
-    return if geo_loc.lat.nil? || geo_loc.lng.nil?
+    return unless valid_geolocation?(geo_loc)
 
     location.lonlat = "POINT(#{geo_loc.lng} #{geo_loc.lat})"
     location.inside = contain.call(repo.all, location.lonlat)
     location.save!
+  end
+
+  private
+
+  def valid_geolocation?(geo_loc)
+    geo_loc.lat.present? && geo_loc.lng.present?
   end
 end
