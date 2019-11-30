@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe LocationCommandsController, type: :controller do
   around do |spec|
-    DependencyResolverMiddleware.new(nil).testing do
+    DependencyResolver.testing do
       spec.run
     end
   end

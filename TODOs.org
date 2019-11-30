@@ -33,7 +33,7 @@
 * [100%] Stage 2
 ** DONE Rewrite Query component
    CLOSED: [2019-11-29 Fri 16:31]
-* [66%] Stage 3
+* [60%] Stage 3
 ** DONE Command+CommandHandler components
    CLOSED: [2019-11-29 Fri 16:31]
 ** DONE Add production sections to README
@@ -49,6 +49,7 @@
    CLOSED: [2019-11-29 Fri 17:40]
 ** TODO Mock Geocoder in specs
 ** TODO Add Inside? query to background job
+** TODO Document new API
 ** TODO Switch to Sidekiq
 * [%] Extras?
 ** TODO Seed Postgres with areas

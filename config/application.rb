@@ -17,11 +17,11 @@ require 'action_cable/engine'
 # require "sprockets/railtie"
 require 'rails/test_unit/railtie'
 
-require_relative '../lib/middleware/dependency_resolver'
-
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
+
+require_relative '../app/middleware/dependency_resolver'
 
 module Medea
   class Application < Rails::Application
@@ -38,6 +38,6 @@ module Medea
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
 
-    config.middleware.use(::DependencyResolverMiddleware)
+    config.middleware.use(DependencyResolverMiddleware)
   end
 end
