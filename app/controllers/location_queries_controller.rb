@@ -28,7 +28,7 @@ class LocationQueriesController < ApplicationController
     location = Location.find_by(id: id)
     raise LocationNotFound, "no location with id=#{id}" unless location
 
-    render json: location.to_json(only: %i[name inside lonlat])
+    render json: location.to_json(only: %i[name inside lonlat geocoder_errors])
   rescue ActionController::ParameterMissing
     render json: { error: :missing_query_param }, status: :bad_request
   rescue LocationNotFound => e

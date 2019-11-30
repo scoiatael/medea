@@ -83,7 +83,7 @@ RSpec.describe LocationQueriesController, type: :controller do
       end
 
       it 'returns only whitelisted params' do
-        expected_keys = %w[name inside lonlat]
+        expected_keys = %w[name inside lonlat geocoder_errors]
         parsed_keys = parsed.keys
         expect(parsed_keys - expected_keys).to be_empty
         expect(expected_keys - parsed_keys).to be_empty

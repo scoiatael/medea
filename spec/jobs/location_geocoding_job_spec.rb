@@ -49,5 +49,13 @@ RSpec.describe LocationGeocodingJob, type: :job do
         expect(location.inside).to be_truthy
       end
     end
+
+    context 'when geocoder fails to return a valid geolocation' do
+      let(:geocoder_point) { double(:geocoder_point, lat: nil, lng: nil) }
+
+      it 'add error to location#geocoder_errors' do
+        expect(location.geocoder_errors).to eq(['invalid_location_name'])
+      end
+    end
   end
 end
