@@ -9,6 +9,10 @@ RSpec.describe LocationCommandsController, type: :controller do
     end
   end
 
+  before do
+    ActiveJob::Base.queue_adapter = :test
+  end
+
   describe 'PUT /location_commands/create/:id' do
     # TODO: Use Factory for params
     let(:id) { SecureRandom.uuid }
@@ -39,6 +43,10 @@ RSpec.describe LocationCommandsController, type: :controller do
 
       it 'creates new location' do
         expect(Location.where(id: id).count).to eq(1)
+      end
+
+      it 'enqueues a job to populate location data' do
+        expect(LocationGeocodingJob).to have_been_enqueued.exactly(:once)
       end
     end
 
@@ -99,6 +107,10 @@ RSpec.describe LocationCommandsController, type: :controller do
 
     it 'creates new location' do
       expect(Location.where(name: name).count).to eq(1)
+    end
+
+    it 'enqueues a job to populate location data' do
+      expect(LocationGeocodingJob).to have_been_enqueued.exactly(:once)
     end
   end
 end

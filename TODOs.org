@@ -53,8 +53,8 @@
    CLOSED: [2019-11-30 Sat 15:17]
 ** DONE Handle invalid locations in background job
    CLOSED: [2019-11-30 Sat 15:27]
-** TODO Document new API
 ** TODO Switch to Sidekiq
+** TODO Document new API
 * [%] Extras?
 ** TODO Seed Postgres with areas
 ** TODO Postgres area repo

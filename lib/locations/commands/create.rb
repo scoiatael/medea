@@ -15,6 +15,7 @@ module Locations
           created = true
           creating.name = name
         end
+        LocationGeocodingJob.perform_later(location) if created
         raise ExistingRecordNameMismatch, "existing record with id #{id} has name #{name}" unless location.name == name
 
         [created, location]
