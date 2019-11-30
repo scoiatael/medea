@@ -69,7 +69,7 @@ RSpec.describe LocationCommandsController, type: :controller do
         end
 
         it 'returns error description' do
-          expect(response.body).to include_json(error: "existing record with id #{id} has name #{name}")
+          expect(response).to include_json(error: "existing record with id #{id} has name #{name}")
         end
       end
 

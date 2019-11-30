@@ -20,9 +20,13 @@ RSpec::Matchers.define :include_json do |hash|
     body = response.body
     if body.present?
       parsed = JSON.parse(body)
+      @actual = parsed
       expected_keys.all? { |k| hash[k].respond_to?(:call) ? hash[k].call(parsed[k.to_s]) : parsed[k.to_s] == hash[k] }
     else
+      @actual = body
       false
     end
   end
+
+  diffable
 end
